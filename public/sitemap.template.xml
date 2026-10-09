@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP TEMPLATE
+  1. Replace https://[YOUR-DOMAIN] with the real domain.
+  2. Add one <url> per real tour: /tours/<slug> (slugs are in src/data/tours.js).
+  3. Rename this file to sitemap.xml and uncomment the Sitemap line in robots.txt.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://[YOUR-DOMAIN]/</loc></url>
+  <url><loc>https://[YOUR-DOMAIN]/about</loc></url>
+  <url><loc>https://[YOUR-DOMAIN]/tours</loc></url>
+  <url><loc>https://[YOUR-DOMAIN]/destinations</loc></url>
+  <url><loc>https://[YOUR-DOMAIN]/vehicle</loc></url>
+  <url><loc>https://[YOUR-DOMAIN]/gallery</loc></url>
+  <url><loc>https://[YOUR-DOMAIN]/contact</loc></url>
+  <!-- <url><loc>https://[YOUR-DOMAIN]/tours/your-tour-slug</loc></url> -->
+</urlset>

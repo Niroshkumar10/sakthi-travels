@@ -1,0 +1,100 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   Brand tokens — change colours here and they apply site-wide.
+   navy  = primary (trust)        amber = secondary (warmth / CTAs)
+------------------------------------------------------------------- */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-50: #eef3fa;
+  --color-navy-100: #d6e2f2;
+  --color-navy-200: #aec5e4;
+  --color-navy-600: #1f4a7f;
+  --color-navy-700: #173a66;
+  --color-navy-800: #12304f;
+  --color-navy-900: #0f2847;
+  --color-navy-950: #0a1b31;
+
+  --color-amber-50: #fff8eb;
+  --color-amber-100: #feedc7;
+  --color-amber-400: #fbb72b;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  --color-ink: #1f2933;
+  --color-muted: #5b6673;
+  --color-surface: #f6f8fb;
+
+  --color-whatsapp: #1fa855;
+  --color-whatsapp-dark: #178a45;
+
+  --shadow-card: 0 1px 2px rgb(15 40 71 / 0.05), 0 8px 24px -8px rgb(15 40 71 / 0.12);
+  --animate-fade-in: fade-in 0.25s ease both;
+
+  --shadow-card-hover: 0 2px 4px rgb(15 40 71 / 0.06), 0 18px 40px -12px rgb(15 40 71 / 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-amber-500;
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight text-navy-900;
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-(--shadow-card) ring-1 ring-navy-900/5;
+  }
+  /* Highlight for any text that is still a placeholder awaiting real client data */
+  .placeholder-text {
+    @apply rounded bg-amber-100/70 px-1 text-amber-900 ring-1 ring-amber-300/60 ring-inset;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scroll-reveal animation (see components/ui/Reveal.jsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
